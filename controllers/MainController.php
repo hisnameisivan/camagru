@@ -6,7 +6,8 @@ class MainController extends Controller
 {
 	function indexAction()
 	{
-		echo 'Главная страница';
+		$this->view->render('Главная страница');
+		// echo 'Главная страница';
 	}
 
 	function contactAction()
