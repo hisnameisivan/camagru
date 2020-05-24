@@ -6,11 +6,14 @@ class AccountController extends Controller
 {
 	function loginAction()
 	{
-		echo 'Страница входа';
+		$this->view->render('Страница входа');
+		// echo 'Страница входа';
 	}
 
 	function registerAction()
 	{
-		echo 'Страница регистрации';
+		// $this->view->layout = 'custom'; // подключение custom.php-шаблона для страницы регистрации
+		$this->view->render('Страница регистрации');
+		// echo 'Страница регистрации';
 	}
 }
