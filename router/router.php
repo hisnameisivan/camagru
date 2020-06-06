@@ -2,6 +2,8 @@
 
 namespace router;
 
+use view\View;
+
 class Router
 {
 	protected $routes = [];
@@ -29,7 +31,7 @@ class Router
 		// var_dump($this->routes);
 		foreach ($this->routes as $route => $params) {
 			if (preg_match($route, $url, $matches)) {
-				// echo 'debug' . "\n";
+				// echo 'debug';
 				$this->params = $params;
 				return true;
 			}
@@ -40,20 +42,23 @@ class Router
 	function run()
 	{
 		if ($this->match()) {
-			$path = 'controllers\\'.ucfirst($this->params['controller']).'Controller';
-			if (class_exists($path)) {
+			$classPath = 'controllers\\'.ucfirst($this->params['controller']).'Controller';
+			if (class_exists($classPath)) {
 				$action = $this->params['action'].'Action';
-				if (method_exists($path, $action)) {
-					$controller = new $path($this->params);
+				if (method_exists($classPath, $action)) {
+					$controller = new $classPath($this->params);
 					$controller->$action();
 				} else {
-					echo "Method $action not found\n";
+					// echo "Method $action not found";
+					View::errorCode(404);
 				}
 			} else {
-				echo "Class $path not found\n";
+				// echo "Class $classPath not found";
+				View::errorCode(404);
 			}
 		} else {
-			die('404');
+			// die('404');
+			View::errorCode(404);
 		}
 	}
 }
