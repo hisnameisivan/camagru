@@ -6,25 +6,25 @@ use view\View;
 
 abstract class Controller
 {
-	public $route;
-	public $view;
-	public $model;
+    public $route;
+    public $view;
+    public $model;
 
-	function __construct($route)
-	{
-		$this->route = $route;
-		$this->view = new View($route);
-		$this->model = $this->loadModel($route['controller']);
-	}
+    function __construct($route)
+    {
+        $this->route = $route;
+        $this->view = new View($route);
+        $this->model = $this->loadModel($route['controller']);
+    }
 
-	function loadModel($name)
-	{
-		$classPath = 'models\\'.ucfirst($name).'Model';
-		if (class_exists($classPath)) {
-			return new $classPath;
-		}
+    function loadModel($name)
+    {
+        $classPath = 'models\\'.ucfirst($name).'Model';
+        if (class_exists($classPath)) {
+            return new $classPath;
+        }
 
-		return NULL;
-	}
+        return null;
+    }
 
 }

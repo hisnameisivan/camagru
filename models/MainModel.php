@@ -5,9 +5,9 @@ namespace models;
 class MainModel extends Model
 {
 
-	// function getNews()
-	// {
-	// 	// $this->db...
-	// 	return $result;
-	// }
+    // function getNews()
+    // {
+    //     // $this->db...
+    //     return $result;
+    // }
 }

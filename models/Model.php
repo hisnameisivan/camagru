@@ -7,10 +7,10 @@ use db\Db;
 abstract class Model
 {
 
-	public $db;
+    public $db;
 
-	function __construct()
-	{
-		$this->db = new Db;
-	}
+    function __construct()
+    {
+        $this->db = new Db;
+    }
 }

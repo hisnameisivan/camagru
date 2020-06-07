@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title><?php echo $title; ?></title>
-	<script src="/scripts/jquery.js"></script>
-	<script src="/scripts/form.js"></script>
+    <title><?php echo $title; ?></title>
+    <script src="/scripts/jquery.js"></script>
+    <script src="/scripts/form.js"></script>
 </head>
 <body>
-	<?php echo $content; ?>
+    <?php echo $content; ?>
 </body>
 </html>

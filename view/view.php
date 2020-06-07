@@ -4,46 +4,48 @@ namespace view;
 
 class View
 {
-	public $viewPath;
-	public $route;
-	public $layout = 'default';
+    public $viewPath;
+    public $route;
+    public $layout = 'default';
 
-	function __construct($route)
-	{
-		$this->route = $route;
-		$this->viewPath = $route['controller'].'/'.$route['action'];
-		// print_r($this->viewPath);
-	}
+    function __construct($route)
+    {
+        $this->route = $route;
+        $this->viewPath = $route['controller'].'/'.$route['action'];
+        // print_r($this->viewPath);
+    }
 
-	function render($title, $vars = [])
-	{
-		if (file_exists('view/'.$this->viewPath.'.php')) {
-			ob_start();
-			require_once('view/'.$this->viewPath.'.php');
-			$content = ob_get_clean();
+    function render($title, $vars = [])
+    {
+        $currentView = 'view/'.$this->viewPath.'.php';
+        if (file_exists($currentView)) {
+            ob_start();
+            include_once $currentView;
+            $content = ob_get_clean();
 
-			if (file_exists('view/layouts/'.$this->layout.'.php')) {
-				require_once('view/layouts/'.$this->layout.'.php');
-			} else {
-				echo 'Error requiring file \'view/layouts/'.$this->layout.'.php\'';
-			}
-		} else {
-			echo 'Error requiring file \'view/'.$this->viewPath.'.php\'';
-		}
-	}
+            $currentLayout = 'view/layouts/'.$this->layout.'.php';
+            if (file_exists($currentLayout)) {
+                include_once $currentLayout;
+            } else {
+                echo 'Error requiring file \''.$currentLayout.'\'';
+            }
+        } else {
+            echo 'Error requiring file \''.$currentView.'\'';
+        }
+    }
 
-	function redirect($url)
-	{
-		header('location: '.$url);
-		die;
-	}
+    function redirect($url)
+    {
+        header('location: '.$url);
+        die;
+    }
 
-	static function errorCode($code)
-	{
-		http_response_code($code);
-		if (file_exists('view/errors/'.$code.'.php')) {
-			require_once('view/errors/'.$code.'.php');
-		}
-		die;
-	}
+    static function errorCode($code)
+    {
+        http_response_code($code);
+        if (file_exists('view/errors/'.$code.'.php')) {
+            include_once 'view/errors/'.$code.'.php';
+        }
+        die;
+    }
 }
