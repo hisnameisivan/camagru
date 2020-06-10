@@ -12,7 +12,6 @@ class View
     {
         $this->route = $route;
         $this->viewPath = $route['controller'].'/'.$route['action'];
-        // print_r($this->viewPath);
     }
 
     function render($title, $vars = [])
@@ -34,17 +33,18 @@ class View
         }
     }
 
-    function redirect($url)
-    {
-        header('location: '.$url);
-        die;
-    }
+    // function redirect($url)
+    // {
+    //     header('location: '.$url);
+    //     die;
+    // }
 
     static function errorCode($code)
     {
         http_response_code($code);
-        if (file_exists('view/errors/'.$code.'.php')) {
-            include_once 'view/errors/'.$code.'.php';
+        $errorPage = 'view/errors/'.$code.'.php';
+        if (file_exists($errorPage)) {
+            include_once $errorPage;
         }
         die;
     }

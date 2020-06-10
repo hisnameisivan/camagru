@@ -6,7 +6,6 @@ use PDO;
 
 class Db
 {
-
     protected $db;
 
     function __construct()

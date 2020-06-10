@@ -16,7 +16,7 @@ class MainController extends Controller
         // $this->view->render('Главная страница', $vars);
         $this->view->render('Главная страница');
         // уходит в model
-        // $db = new Db;
+        // $db = new Db();
         // $db->query('select * from test_table');
         // echo 'Главная страница';
     }

@@ -7,7 +7,6 @@ class AccountController extends Controller
     function loginAction()
     {
         $this->view->render('Страница входа');
-        // echo 'Страница входа';
     }
 
     function registerAction()
@@ -17,6 +16,5 @@ class AccountController extends Controller
             die(json_encode(['status' => 'success', 'message' => 'success']));
         }
         $this->view->render('Страница регистрации');
-        // echo 'Страница регистрации';
     }
 }

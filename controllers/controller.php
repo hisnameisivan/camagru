@@ -19,12 +19,11 @@ abstract class Controller
 
     function loadModel($name)
     {
-        $classPath = 'models\\'.ucfirst($name).'Model';
+        $classPath = 'models\\'.$name.'Model';
         if (class_exists($classPath)) {
             return new $classPath;
         }
 
         return null;
     }
-
 }

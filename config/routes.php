@@ -1,15 +1,9 @@
 <?php
 
 return [
-
     '' => [
         'controller' => 'main',
         'action' => 'index',
-    ],
-
-    'contact' => [
-        'controller' => 'main',
-        'action' => 'contact',
     ],
 
     'account/login' => [
@@ -21,10 +15,4 @@ return [
         'controller' => 'account',
         'action' => 'register',
     ],
-
-    // 'news/shows' => [
-    //     'controller' => 'news',
-    //     'action' => 'show',
-    // ],
-
 ];
