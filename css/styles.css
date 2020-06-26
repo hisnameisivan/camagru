@@ -1,0 +1,55 @@
+
+/* Страница не пляшет от появляющегося скролла */
+html {
+	/* overflow-x: hidden; */ /* теряем адаптивность */
+	/* margin-right: calc(-1 * (100vw - 100%)); */
+	overflow-y: scroll;
+}
+
+/* Begin футер внизу */
+html, body {
+	height: 100%;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+}
+
+.content {
+	flex: 1 0 auto;
+
+	/*padding: 1rem;/*это свойство можно удалить, добавлено для наглядности*/
+	/*background: #e6f2ff;/*это свойство можно удалить, добавлено для наглядности*/
+}
+
+footer {
+	flex: 0 0 auto;
+
+	/*padding: 1rem;/*это свойство можно удалить, добавлено для наглядности*/
+	/*background: #e6ffe6;/*это свойство можно удалить, добавлено для наглядности*/
+}
+/* End футер внизу */
+
+#logo {
+	color: #007bff;
+	font-size: 45px;
+	font-family: 'Pangolin', cursive;
+}
+
+#logo:hover {
+	text-decoration: none;
+}
+
+#about {
+	color: #007bff;
+	font-size: 18px;
+	font-family: 'Pangolin', cursive;
+}
+
+h1 {
+	font-family: sans-serif;
+	font-size: 3.5rem;
+	width: 1200px;
+	padding: 50px 250px;
+}
