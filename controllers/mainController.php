@@ -14,7 +14,7 @@ class MainController extends Controller
         // ];
 
         // $this->view->render('Главная страница', $vars);
-        $this->view->render('Главная страница');
+        $this->view->render('Camagru - Instagram and Snapchat killer');
         // уходит в model
         // $db = new Db();
         // $db->query('select * from test_table');
